@@ -49,7 +49,6 @@ class User {
         const user = results.rows[0];
         if (user) {
             if (await bcrypt.compare(password, user.password)) {
-                let token = jwt.sign({ username }, SECRET_KEY);
                 return true;
             }
         }
